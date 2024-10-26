@@ -1,6 +1,68 @@
+
+/*
+
+This file is used to define global styles that will be applied to the entire application
+Tailwindcss is a utility-first CSS framework that allows us to build custom designs without having
+to write custom CSS
+
+Tailwind’s Layers:
+base: For resetting or adding base styles.
+components: For adding reusable styles, like buttons or cards.
+utilities: Holds all utility classes like text-gray-500 or bg-blue-200.
+
+
+These layers help you organize CSS rules and control their loading order.
+For example, base loads first, components next, and utilities last, so utility classes
+override component and base styles if needed.
+
+ */
+
+
+/* Base Layer is used to define the default styles for the base html elements like body, h1, h2, h3, h4, h5,
+h6, p, a, etc and reset the default browser styles for these elements. */
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+
+
+/* Components are used to define custom styles that can be applied to specific elements as classes to style them:
+e.g of defining a component:
+
+@layer components {
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+then we can apply this component to any element in our application like so:
+<div class="btn">Hello World</div>
+
+The difference between components and utilities is that components are used to define custom styles that
+can be applied to specific elements as classes to style them, while utilities are used to define custom
+styles that can be applied to any element as classes to style them. Treat components as bunch of
+utility classes that are grouped together to style a specific element.
+
+The spcificity of a utility class is higher than that of a component class is higher than that of a base class.
+*/
+
+
+@tailwind components;
+
+
+/* Utility classes are used to define custom styles that can be applied to any element as classes to style them:
+e.g of defining a utility class:
+
+@layer utilities {
+  .border-border {
+    border: 1px solid var(--border);
+  }
+}
+
+then we can apply this utility class to any element in our application like so:
+<div class="border-border">Hello World</div>
+*/
+@tailwind utilities;
+
+
 
 
 @layer base {
@@ -92,3 +154,51 @@
     }
 
   }
+
+
+
+/*
+  @layer components {
+    .btn {
+      @apply px-4 py-2 rounded-md;
+    }
+
+    .btn-primary {
+      @apply bg-primary text-primary-foreground;
+    }
+
+    .btn-secondary {
+      @apply bg-secondary text-secondary-foreground;
+    }
+
+    .btn-accent {
+      @apply bg-accent text-accent-foreground;
+    }
+
+    .btn-destructive {
+      @apply bg-destructive text-destructive-foreground;
+    }
+
+    .btn-muted {
+      @apply bg-muted text-muted-foreground;
+    }
+
+    .btn-outline {
+      @apply border border-primary text-primary;
+    }
+
+    .btn-outline-primary {
+      @apply border-primary text-primary;
+    }
+
+}
+*/
+
+/*
+  body {
+
+    @apply bg-red-700; // OR
+    background-color: theme(backgroundColor.red.700);
+  }
+
+*/
