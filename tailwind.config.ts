@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+// https://uicolors.app/create
+
 const config = {
   darkMode: ['class'], // or 'media' or 'class'. This is used to enable dark mode in the app by adding the class 'dark' to the body tag
   content: [
